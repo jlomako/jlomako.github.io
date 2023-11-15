@@ -170,18 +170,24 @@
 <!-- END CONTACT SECTION -->
 
  
-
- 
-
 <script>
   const darkModeToggle = document.getElementById('darkModeToggle');
   const themeLink = document.getElementById('theme-link');
+  const customStyles = document.getElementById('custom-styles');
 
   darkModeToggle.addEventListener('change', () => {
     if (darkModeToggle.checked) {
       themeLink.href = 'https://bootswatch.com/5/spacelab/bootstrap-dark.min.css';
+      customStyles.textContent = `
+        body {
+          --navbar-bg: #343a40;
+          --navbar-text: #ffffff;
+          /* Add more custom styles for dark mode as needed */
+        }
+      `;
     } else {
       themeLink.href = 'https://bootswatch.com/5/spacelab/bootstrap.min.css';
+      customStyles.textContent = '';
     }
   });
 </script>
