@@ -175,14 +175,10 @@
 
   <script>
     const darkModeToggle = document.getElementById('darkModeToggle');
-    const themeLink = document.getElementById('theme-link');
+    const body = document.body;
 
     darkModeToggle.addEventListener('change', () => {
-      if (darkModeToggle.checked) {
-        themeLink.href = 'https://bootswatch.com/5/spacelab/bootstrap-dark.min.css';
-      } else {
-        themeLink.href = 'https://bootswatch.com/5/spacelab/bootstrap.min.css';
-      }
+      body.classList.toggle('dark-mode', darkModeToggle.checked);
     });
   </script>
 </body>
