@@ -1,2 +1,1 @@
-# side
-this is just a test
+# [here](https://jlomako.github.io/side/)
