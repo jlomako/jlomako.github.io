@@ -1,5 +1,7 @@
 /* Custom CSS */
 
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Russo+One&display=swap')
+
 /* Small screens (up to 576px) */
 @media (max-width: 576px) {
   .rounded-circle-mobile {
@@ -19,3 +21,4 @@
     width: 100%;
   }
 }
+
