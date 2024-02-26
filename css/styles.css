@@ -22,4 +22,9 @@
 
 .bg-light-custom {
     background-color: #dfe5f0;
+    color: #000;
+}
+
+.navbar.bg-light-custom {
+    border: 1px solid #bebebe;
 }
