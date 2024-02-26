@@ -26,5 +26,6 @@
 }
 
 .navbar.bg-light-custom {
-    border: 1px solid #bebebe;
+    border: 1px solid #ced4de;
+    background-image: linear-gradient(#ced4de, #eee 50%, #dfe5f0);
 }
