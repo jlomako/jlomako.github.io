@@ -1,7 +1,5 @@
 /* Custom CSS */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
 /* Small screens (up to 576px) */
 @media (max-width: 576px) {
   .rounded-circle-mobile {
