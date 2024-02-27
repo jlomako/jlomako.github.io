@@ -22,11 +22,11 @@
 
 .bg-light-custom {
     background-color: #dfe5f0;
+    background-image: linear-gradient(#edf2fa, #dfe5f0);
 }
 
 .navbar.bg-light-custom {
     border: 1px solid #ced4de;
-    background-image: linear-gradient(#edf2fa, #dfe5f0);
 }
 
 /* change font colour of navbar-brand because it defaults to blue */ 
