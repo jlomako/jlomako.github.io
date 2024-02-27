@@ -33,3 +33,7 @@
 .navbar-brand {
     color: #737373;
 }
+
+.indent {
+    margin-left: 24px;
+}
