@@ -13,6 +13,38 @@
 
 </head>
 <body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script>
+(() => {
+  'use strict';
+
+  const getStoredTheme = () => localStorage.getItem('theme');
+  const setStoredTheme = theme => localStorage.setItem('theme', theme);
+
+  const setTheme = theme => {
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  };
+
+  const toggleDarkMode = () => {
+    const isDarkMode = document.getElementById('darkModeToggle').checked;
+    const theme = isDarkMode ? 'dark' : 'light';
+
+    setStoredTheme(theme);
+    setTheme(theme);
+  };
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const storedTheme = getStoredTheme() || getPreferredTheme();
+    setTheme(storedTheme);
+
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    darkModeToggle.checked = storedTheme === 'dark';
+
+    darkModeToggle.addEventListener('change', toggleDarkMode);
+  });
+})();
+
+</script>
 	
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-md navbar-light border-bottom">
@@ -273,30 +305,7 @@ Sed ut sagittis orci. Proin pharetra tortor in est molestie vestibulum. Nullam l
 
  
 
-<!-- JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-<script>
-(() => {
-  'use strict';
 
-  const setStoredTheme = theme => localStorage.setItem('theme', theme);
-  const setTheme = theme => document.documentElement.setAttribute('data-bs-theme', theme);
-
-  const toggleDarkMode = () => {
-    const isDarkMode = document.getElementById('darkModeToggle').checked;
-    const theme = isDarkMode ? 'dark' : 'light';
-
-    setStoredTheme(theme);
-    setTheme(theme);
-  };
-
-  // Get the dark mode toggle element
-  const darkModeToggle = document.getElementById('darkModeToggle');
-
-  // Add event listener for the toggle
-  darkModeToggle.addEventListener('change', toggleDarkMode);
-})();
-</script>
 </body>
 </html>
 
