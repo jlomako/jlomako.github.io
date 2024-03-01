@@ -275,16 +275,12 @@ Sed ut sagittis orci. Proin pharetra tortor in est molestie vestibulum. Nullam l
 
 <!-- JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-<script defer>
+<script>
 (() => {
   'use strict';
 
-  const getStoredTheme = () => localStorage.getItem('theme');
   const setStoredTheme = theme => localStorage.setItem('theme', theme);
-
-  const setTheme = theme => {
-    document.documentElement.setAttribute('data-bs-theme', theme);
-  };
+  const setTheme = theme => document.documentElement.setAttribute('data-bs-theme', theme);
 
   const toggleDarkMode = () => {
     const isDarkMode = document.getElementById('darkModeToggle').checked;
@@ -294,17 +290,8 @@ Sed ut sagittis orci. Proin pharetra tortor in est molestie vestibulum. Nullam l
     setTheme(theme);
   };
 
-  // Get the stored theme or use the preferred theme if not stored
-  const storedTheme = getStoredTheme() || getPreferredTheme();
-
-  // Set the theme initially
-  setTheme(storedTheme);
-
-  // Get the dark mode toggle element with the new ID 'darkModeToggle'
+  // Get the dark mode toggle element
   const darkModeToggle = document.getElementById('darkModeToggle');
-
-  // Set the initial state of the toggle based on the stored theme
-  darkModeToggle.checked = storedTheme === 'dark';
 
   // Add event listener for the toggle
   darkModeToggle.addEventListener('change', toggleDarkMode);
