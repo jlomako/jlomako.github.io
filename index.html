@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en" data-bs-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -294,14 +294,22 @@ Sed ut sagittis orci. Proin pharetra tortor in est molestie vestibulum. Nullam l
     setTheme(theme);
   };
 
+  // Get the stored theme or use the preferred theme if not stored
   const storedTheme = getStoredTheme() || getPreferredTheme();
+
+  // Set the theme initially
   setTheme(storedTheme);
 
+  // Get the dark mode toggle element
   const darkModeToggle = document.getElementById('darkModeToggle');
+
+  // Set the initial state of the toggle based on the stored theme
   darkModeToggle.checked = storedTheme === 'dark';
 
+  // Add event listener for the toggle
   darkModeToggle.addEventListener('change', toggleDarkMode);
 })();
 </script>
 </body>
 </html>
+
