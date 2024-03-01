@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +15,7 @@
 <body>
 	
   <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-md navbar-light bg-light-custom">
+  <nav class="navbar navbar-expand-md navbar-light">
     <div class="container">
         <a class="navbar-brand" href="index.html">Lorem Ipsum</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -42,18 +42,10 @@
                     <a class="nav-link" href="index.html#contact">Contact</a>
                 </li>
             </ul>
-            <ul class="navbar-nav"><!-- align to right and hide on screens smaller than md -->
-                <li class="nav-item d-none d-md-block">
-                    <a class="nav-link" href="" target="_blank" rel="noopener">
-                        [ Lorem ]
-                    </a>
-                </li>
-                <li class="nav-item d-none d-md-block">
-                    <a class="nav-link" href="" target="_blank" rel="noopener">
-                        [ Ipsum ]
-                    </a>
-                </li>
-            </ul>
+		  <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="darkModeToggle">
+            <label class="form-check-label" for="darkModeToggle">Dark Mode</label>
+        </div>
         </div>
     </div>
 </nav>
@@ -250,7 +242,7 @@ Sed ut sagittis orci. Proin pharetra tortor in est molestie vestibulum. Nullam l
 <section id="contact">
  <div class="impressum" lang="de">
   <div class="container-fluid">
-    <div class="row shadow-none p-4 mb-5 bg-light-custom">
+    <div class="row shadow-none p-4 mb-5 bg-custom">
       <div class="col-md-4 text-center">
         <p><h4>Contact &middot; Impressum</h4></p>
       </div>
@@ -271,7 +263,7 @@ Sed ut sagittis orci. Proin pharetra tortor in est molestie vestibulum. Nullam l
     <!-- Copyright -->
     <div class="row">
      <div class="col-md-4"><!-- Empty cell --></div>
-     <div class="col-md-8 text-center text-md-start"><p class="text-muted">&copy; 2023-2024 jlomako. All rights reserved. Ä, Ö, Ü</p></div>
+     <div class="col-md-8 text-center text-md-start"><p class="text-muted">&copy; 2023-2024 jlomako. All rights reserved.</p></div>
     </div>
   </div>
  </div>
@@ -282,5 +274,36 @@ Sed ut sagittis orci. Proin pharetra tortor in est molestie vestibulum. Nullam l
  
 
 <!-- JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script>
+(() => {
+  'use strict';
+
+  const getStoredTheme = () => localStorage.getItem('theme');
+  const setStoredTheme = theme => localStorage.setItem('theme', theme);
+
+  const setTheme = theme => {
+    document.documentElement.setAttribute('data-bs-theme', theme);
+  };
+
+  const toggleDarkMode = () => {
+    const isDarkMode = document.getElementById('darkModeToggle').checked;
+    const theme = isDarkMode ? 'dark' : 'light';
+
+    setStoredTheme(theme);
+    setTheme(theme);
+  };
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const storedTheme = getStoredTheme() || getPreferredTheme();
+    setTheme(storedTheme);
+
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    darkModeToggle.checked = storedTheme === 'dark';
+
+    darkModeToggle.addEventListener('change', toggleDarkMode);
+  });
+})();
+
+</script>
 </body></html>
