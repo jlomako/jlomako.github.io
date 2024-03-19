@@ -148,15 +148,23 @@ strong {
   }
 }
 
-/* Medium screens and larger (577px and above) */
-@media (min-width: 577px) {
+/* Medium screens (577px to 991px) */
+@media (min-width: 577px) and (max-width: 991px) {
+  .welcome-img {
+    width: 50%;
+  }
+}
+
+/* Large screens (992px and above) */
+@media (min-width: 992px) {
   .rounded-circle-mobile {
     width: 100%;
   }
   .welcome-img {
-    width: 100%;
+    width: 100%; /* Adjusted to 100% width for large screens */
   }
 }
+
 
 [data-bs-theme=light] .bg-custom,
 [data-bs-theme=light] .navbar {
