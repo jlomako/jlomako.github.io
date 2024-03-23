@@ -1,4 +1,4 @@
-# [here](https://jlomako.github.io/side/)
+# [here](https://jlomako.github.io/)
 
 Notes to myself:
 - google fonts are loaded locally
