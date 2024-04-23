@@ -15,34 +15,25 @@
 <body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script>
-(() => {
-  'use strict';
+document.addEventListener('DOMContentLoaded', (event) => {
+    const htmlElement = document.documentElement;
+    const switchElement = document.getElementById('darkModeSwitch');
 
-  const getStoredTheme = () => localStorage.getItem('theme');
-  const setStoredTheme = theme => localStorage.setItem('theme', theme);
+    // Set the default theme to dark if no setting is found in local storage
+    const currentTheme = localStorage.getItem('bsTheme') || 'dark';
+    htmlElement.setAttribute('data-bs-theme', currentTheme);
+    switchElement.checked = currentTheme === 'dark';
 
-  const setTheme = theme => {
-    document.documentElement.setAttribute('data-bs-theme', theme);
-  };
-
-  const toggleDarkMode = () => {
-    const isDarkMode = document.getElementById('darkModeToggle').checked;
-    const theme = isDarkMode ? 'dark' : 'light';
-
-    setStoredTheme(theme);
-    setTheme(theme);
-  };
-
-  window.addEventListener('DOMContentLoaded', () => {
-    const storedTheme = getStoredTheme() || getPreferredTheme();
-    setTheme(storedTheme);
-
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    darkModeToggle.checked = storedTheme === 'dark';
-
-    darkModeToggle.addEventListener('change', toggleDarkMode);
-  });
-})();
+    switchElement.addEventListener('change', function () {
+        if (this.checked) {
+            htmlElement.setAttribute('data-bs-theme', 'dark');
+            localStorage.setItem('bsTheme', 'dark');
+        } else {
+            htmlElement.setAttribute('data-bs-theme', 'light');
+            localStorage.setItem('bsTheme', 'light');
+        }
+    });
+});
 
 </script>
 	
@@ -75,8 +66,8 @@
                 </li>
             </ul>
         <div class="form-check form-switch d-none d-lg-block">
-            <input class="form-check-input" type="checkbox" id="darkModeToggle">
-            <label class="form-check-label" for="darkModeToggle">Dark Mode</label>
+            <input class="form-check-input" type="checkbox" id="darkModeSwitch">
+            <label class="form-check-label" for="darkModeSwitch">Dark Mode</label>
         </div>
         </div>
     </div>
